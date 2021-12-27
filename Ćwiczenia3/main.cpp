@@ -39,5 +39,28 @@ int main()
         }
         cout << endl;
     }
+    cout << "\n\n\n" << endl;
+    cout << "-------------" << endl;
+    cout << "- Zadanie 2 -" << endl;
+    cout << "-------------" << endl;
+    int N;
+    double a, h, x, wartoscFunkcji = 0;
+    cout << "\nProgram wyswietli kolejne wartosci funkjci y(x)= 3*x^2+3*x-1.\n" << endl;
+    cout << "\nPodaj punkt poczatkowy x: ";
+    cin >> a;
+    cout << "\nPodaj krok h: ";
+    cin >> h;
+    do{                                                                                             //zabezpieczenie przed wpisaniem wartosci mniejszej od 0
+        cout << "\nPodaj liczbe krokow (nieujemna liczbe calkowita): ";
+        cin >> N;
+    } while (N < 0);
+    for (int i = 0; i <= N; i++){
+        x = a + (i*h);                                                                              //wyliczenie wartosci x dla kolejnych krokow N
+        wartoscFunkcji += (3*(x*x))+(3*x)-1;                                                        //wyliczenie wartosci funkcji dla kolejnych x i dodanie jej do zmiennej wartoscFunkcji
+    }
+    cout << endl;
+    cout << "()()()()()()()()()()()()()()" << endl;
+    cout << "()Wartosc funkcji: " << wartoscFunkcji << " ()" << endl;
+    cout << "()()()()()()()()()()()()()()" << endl;
     return 0;
 }
