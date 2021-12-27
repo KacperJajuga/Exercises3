@@ -96,12 +96,14 @@ int main()
     double sumaS = 0, licznik, mianownik;                                                           //deklaruje zmienne licznik i mianownik, zeby latwiej przeprowadzac operacje, bez nich nie liczylo mi sumy
     int m;
     cout << "\nProgram obliczy sume (1+j)/(2*(j^3)+3), dla j = 0, 1, 2, ... , m." << endl;
-    do                                                                                              //zabezpieczenie przed wpisaniem wartosci mniejszej od 0
+    cout << "Prosze podac liczbe m (nieujemna liczba calkowita): ";
+        cin >> m;
+    while (m < 0)                                                                                              //zabezpieczenie przed wpisaniem wartosci mniejszej od 0
     {
-        cout << "\Prosze podac liczbe m (nieujemna liczba calkowita): ";
+        cout << "Zostala podana bledna liczba" << endl;
+        cout << "Prosze podac liczbe m (nieujemna liczba calkowita): ";
         cin >> m;
     }
-    while (m < 0);
     for (int j = 0; j <= m; j++)                                                                    //liczenie sumy
     {
         licznik = (1+j);
