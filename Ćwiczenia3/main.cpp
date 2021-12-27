@@ -21,11 +21,13 @@ int main()
     }
     while (n > 10);
     cout << setw(8);                                                                                //od tego miejsca...
-    for (int i = 1; i <= n; i++){                                                                   //
+    for (int i = 1; i <= n; i++)                                                                    //
+    {
         cout << i << setw(4);                                                                       //
     }                                                                                               //
     cout << endl;                                                                                   //
-    for (int i = 1; i <= n; i++){                                                                   //
+    for (int i = 1; i <= n; i++)                                                                    //
+    {
         cout << "_____";                                                                            //
     }                                                                                               //
     cout << endl;                                                                                   //
@@ -50,11 +52,14 @@ int main()
     cin >> a;
     cout << "\nPodaj krok h: ";
     cin >> h;
-    do{                                                                                             //zabezpieczenie przed wpisaniem wartosci mniejszej od 0
+    do                                                                                              //zabezpieczenie przed wpisaniem wartosci mniejszej od 0
+    {
         cout << "\nPodaj liczbe krokow (nieujemna liczbe calkowita): ";
         cin >> N;
-    } while (N < 0);
-    for (int i = 0; i <= N; i++){
+    }
+    while (N < 0);
+    for (int i = 0; i <= N; i++)
+    {
         x = a + (i*h);                                                                              //wyliczenie wartosci x dla kolejnych krokow N
         wartoscFunkcji += (3*(x*x))+(3*x)-1;                                                        //wyliczenie wartosci funkcji dla kolejnych x i dodanie jej do zmiennej wartoscFunkcji
     }
@@ -62,5 +67,27 @@ int main()
     cout << "()()()()()()()()()()()()()()" << endl;
     cout << "()Wartosc funkcji: " << wartoscFunkcji << " ()" << endl;
     cout << "()()()()()()()()()()()()()()" << endl;
+    cout << "\n\n\n" << endl;
+    cout << "-------------" << endl;
+    cout << "- Zadanie 3 -" << endl;
+    cout << "-------------" << endl;
+    int tab[100], pomocnicza = 0;                                                                   //wydaje mi sie, ze wlasnie tablicami powinienem to zrobic, musze zadeklarowac jej wielkosc (dlatego 100) lub kombinowac z tablica dynamiczna ale nie czuje sie jeszcze na tyle komfortowo
+    double srednia = 0;
+    cout << "Program policzy srednia podanych wartosci (nie moze byc ich wiecej niz 100)." << endl;
+    cout << "Aby wczesniej zakonczyc wprowadzanie wartosci wpisz 0." << endl;
+    for (int i = 0; i < 100; i++)                                                                   //wypelnianie tablicy
+    {
+        cin >> tab[i];
+        if (tab[i] == 0)                                                                            //jesli uzytkownik wprowadzi 0, to przerywam wypelnianie tablicy
+        {
+            break;
+        }
+        pomocnicza++;
+    }
+    for (int j = 0; j < pomocnicza; j++)                                                            //sumowanie wpisanych wartosci
+    {
+        srednia += tab[j];
+    }
+    cout << "Srednia podanych liczb wynosi: " << srednia/pomocnicza << endl;                        //liczenie i wypisywanie sredniej
     return 0;
 }
