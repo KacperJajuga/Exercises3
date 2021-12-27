@@ -73,7 +73,7 @@ int main()
     cout << "-------------" << endl;
     int tab[100], pomocnicza = 0;                                                                   //wydaje mi sie, ze wlasnie tablicami powinienem to zrobic, musze zadeklarowac jej wielkosc (dlatego 100) lub kombinowac z tablica dynamiczna ale nie czuje sie jeszcze na tyle komfortowo
     double srednia = 0;
-    cout << "Program policzy srednia podanych wartosci (nie moze byc ich wiecej niz 100)." << endl;
+    cout << "\nProgram policzy srednia podanych wartosci (nie moze byc ich wiecej niz 100)." << endl;
     cout << "Aby wczesniej zakonczyc wprowadzanie wartosci wpisz 0." << endl;
     for (int i = 0; i < 100; i++)                                                                   //wypelnianie tablicy
     {
@@ -89,5 +89,25 @@ int main()
         srednia += tab[j];
     }
     cout << "Srednia podanych liczb wynosi: " << srednia/pomocnicza << endl;                        //liczenie i wypisywanie sredniej
+    cout << "\n\n\n" << endl;
+    cout << "-------------" << endl;
+    cout << "- Zadanie 4 -" << endl;
+    cout << "-------------" << endl;
+    double sumaS = 0, licznik, mianownik;                                                           //deklaruje zmienne licznik i mianownik, zeby latwiej przeprowadzac operacje, bez nich nie liczylo mi sumy
+    int m;
+    cout << "\nProgram obliczy sume (1+j)/(2*(j^3)+3), dla j = 0, 1, 2, ... , m." << endl;
+    do                                                                                              //zabezpieczenie przed wpisaniem wartosci mniejszej od 0
+    {
+        cout << "\Prosze podac liczbe m (nieujemna liczba calkowita): ";
+        cin >> m;
+    }
+    while (m < 0);
+    for (int j = 0; j <= m; j++)                                                                    //liczenie sumy
+    {
+        licznik = (1+j);
+        mianownik = ((2*(j*j*j))+3);
+        sumaS += licznik/mianownik;
+    }
+    cout << "Suma dla j = 0, 1, 2, ..., " << m << " wynosi: " << sumaS << endl;
     return 0;
 }
