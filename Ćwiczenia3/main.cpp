@@ -125,53 +125,66 @@ int main()
         cin >> nazwaHotelu;
         cout << "Prosze podac liczbe pieter: ";
         cin >> liczbaPieter;
-        while (liczbaPieter < 1)
+        while (liczbaPieter < 1)                                                //taki warunek, bo bez sensu bylby hotel skladajacy sie tylko z recepcji i nie majacy pokoi
         {
-            if (liczbaPieter == 0)
+            if (liczbaPieter == 0)                                              //przypadek, jesli ktos wprowadzil 0
             {
-                cout << "Na pietrze numer 0 nie ma pokoi. Prosze podac poprawna liczbe pieter: ";
+                cout << "\nNa pietrze numer 0 nie ma pokoi. Prosze podac poprawna liczbe pieter: ";
                 cin >> liczbaPieter;
             }
-            else
+            else                                                                //pozostale przypadki
             {
-                cout << "Liczba pieter nie moze byc mniejsza od 0. Prosze podac poprawna liczbe pieter: ";
+                cout << "\nLiczba pieter nie moze byc mniejsza od 0. Prosze podac poprawna liczbe pieter: ";
                 cin >> liczbaPieter;
             }
         }
         cout << "Prosze podac numer pietra bez pokoi: ";
         cin >> pietroBezPokoi;
-        while (pietroBezPokoi <= 1)
+        while (pietroBezPokoi <= 1)                                             //tutaj <=, zeby w momencie gdy hotel ma tylko jedno pietro, a ktos wprowadzi, ze nie ma na nim pokoi, to wypisuje odpowiedni komunikat
         {
-            if (liczbaPieter == pietroBezPokoi)
+            if (liczbaPieter == pietroBezPokoi)                                 //przypadek wspomniany w komentarzu wyzej
             {
-                cout << "To nie jest hotel, jesli ma tylko jedno pietro i nie ma na nim pokoi. :/" << endl;
+                cout << "\nTo nie jest hotel, jesli ma tylko jedno pietro i nie ma na nim pokoi." << endl;
                 cout << "Jesli w hotelu tylko parter nie ma pokoi to wpisz 0." << endl;
                 cout << "Podaj poprawny numer pietra bez pokoi: ";
                 cin >> pietroBezPokoi;
             }
-            else if (pietroBezPokoi == 0)
+            else if (pietroBezPokoi == 0)                                       //mozliwosc wpisania tylko parteru jako pietra bez pokoi
             {
-                cout << "Tylko parter nie ma pokoi." << endl;
-                break;
+                cout << "\nTylko parter nie ma pokoi." << endl;
+                break;                                                          //wyjscie poza petle while
             }
             else if (pietroBezPokoi < 0)
             {
-                cout << "Pietro bez pokoi nie moze byc liczba ujemna." << endl;
+                cout << "\nPietro bez pokoi nie moze byc liczba ujemna." << endl;
                 cout << "Jesli w hotelu tylko parter nie ma pokoi to wpisz 0." << endl;
                 cout << "Podaj poprawny numer pietra bez pokoi: ";
                 cin >> pietroBezPokoi;
             }
-            else{
-                break;
+            else                                                                //zadeklarowanie wyzszego pietra niz zostalo zadeklarowane w zmiennej liczbaPieter
+            {
+                cout << "\nHotel ma mniej pieter." << endl;
+                cout << "Jesli w hotelu tylko parter nie ma pokoi to wpisz 0." << endl;
+                cout << "Podaj poprawny numer pietra bez pokoi: ";
+                cin >> pietroBezPokoi;
             }
         }
-        for (int i = 1; i <= liczbaPieter; i++){
-            if (i == pietroBezPokoi){
-                cout << "Pietro " << i << " zostalo zadeklarowane jako pietro bez pokoi." << endl;
+        while (pietroBezPokoi > liczbaPieter)                                   //zadeklarowanie wyzszego pietra niz zostalo zadeklarowane w zmiennej liczbaPieter
+        {
+            cout << "\nHotel ma mniej pieter." << endl;
+            cout << "Podaj poprawny numer pietra bez pokoi: ";
+            cin >> pietroBezPokoi;
+        }
+        for (int i = 1; i <= liczbaPieter; i++)
+        {
+            if (i == pietroBezPokoi)
+            {
+                cout << "\nPietro " << i << " zostalo zadeklarowane jako pietro bez pokoi." << endl;
                 continue;
             }
-            else{
-                cout << "Prosze podac liczbe pokoi na " << i << " pietrze: ";
+            else
+            {
+                cout << "\nProsze podac liczbe pokoi na " << i << " pietrze: ";
                 cin >> pomocnicza1;
                 liczbaPokoi += pomocnicza1;
                 cout << "Prosze podac liczbe zajetych pokoi na " << i << " pietrze: ";
