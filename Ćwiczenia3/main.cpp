@@ -98,7 +98,7 @@ int main()
     cout << "\nProgram obliczy sume (1+j)/(2*(j^3)+3), dla j = 0, 1, 2, ... , m." << endl;
     cout << "Prosze podac liczbe m (nieujemna liczba calkowita): ";
         cin >> m;
-    while (m < 0)                                                                                              //zabezpieczenie przed wpisaniem wartosci mniejszej od 0
+    while (m < 0)                                                                                   //zabezpieczenie przed wpisaniem wartosci mniejszej od 0
     {
         cout << "Zostala podana bledna liczba" << endl;
         cout << "Prosze podac liczbe m (nieujemna liczba calkowita): ";
@@ -111,5 +111,46 @@ int main()
         sumaS += licznik/mianownik;
     }
     cout << "Suma dla j = 0, 1, 2, ..., " << m << " wynosi: " << sumaS << endl;
+    cout << "\n\n\n" << endl;
+    cout << "-------------" << endl;
+    cout << "- Zadanie 5 -" << endl;
+    cout << "-------------" << endl;
+    string nazwaHotelu;
+    int liczbaPieter, pietroBezPokoi;
+    cout << "Prosze podac nazwe hotelu: ";
+    cin >> nazwaHotelu;
+    cout << "Prosze podac liczbe pieter: ";
+    cin >> liczbaPieter;
+    while (liczbaPieter < 1){
+        if (liczbaPieter == 0){
+            cout << "Na pietrze numer 0 nie ma pokoi. Prosze podac poprawna liczbe pieter: ";
+            cin >> liczbaPieter;
+        }
+        else{
+            cout << "Liczba pieter nie moze byc mniejsza od 0. Prosze podac poprawna liczbe pieter: ";
+            cin >> liczbaPieter;
+        }
+    }
+    cout << "Prosze podac numer pietra bez pokoi: ";
+    cin >> pietroBezPokoi;
+    while (pietroBezPokoi <= 1){
+        if (liczbaPieter == pietroBezPokoi){
+            cout << "To nie jest hotel, jesli ma tylko jedno pietro i nie ma na nim pokoi. :/" << endl;
+            cout << "Jesli w hotelu tylko parter nie ma pokoi to wpisz 0." << endl;
+            cout << "Podaj poprawny numer pietra bez pokoi: ";
+            cin >> pietroBezPokoi;
+        }
+        else if (pietroBezPokoi == 0){
+            cout << "Tylko patrer nie ma pokoi." << endl;
+            break;
+        }
+        else{
+            cout << "Pietro bez pokoi nie moze byc liczba ujemna." << endl;
+            cout << "Jesli w hotelu tylko parter nie ma pokoi to wpisz 0." << endl;
+            cout << "Podaj poprawny numer pietra bez pokoi: ";
+            cin >> pietroBezPokoi;
+        }
+    }
+    cout << "Dziala" << endl;
     return 0;
 }
